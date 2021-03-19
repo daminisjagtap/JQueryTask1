@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        /*for remove btn*/
+        .btn1 
+        {
+              background-color: red;
+              border: 1px solid;
+              color: white;
+              padding: 5px 5px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 15px;
+              margin: 2px 2px;
+              cursor: pointer;
+          }
+          /*For add button */
+           #add
+                 {
+                            background-color:Gray;
+                              border-radius: 8px;
+                              border: 1px solid;
+                              color: white;
+                              padding: 5px 5px;
+                              text-align: center;
+                              text-decoration: none;
+                              display: inline-block;
+                              font-size: 15px;
+                              margin: 2px 2px;
+                              cursor: pointer;
+    
+                     }
+   /*even odd list color
+                 li {
+                color: black;
+            }
+            li:nth-child(odd) {
+                color: #777;
+            }
+            li:nth-child(even) {
+                color: blue;
+            }*/
+  </style>
+    <title></title>
+</head>
+<body>
+        <div >
+            <fieldset style="margin-left:10%; width:60%">
+                <legend>jQuery Task:</legend>
+                      <label>Enter your Name</label><br />
+                      <input id="txt" type="text" autofocus><br />
+                      <span id="err" style=color:red>&nbsp; Please Enter Some Text</span> <br />
+
+                      <button id="add">Add </button>
+                      <br />
+                      
+                      
+                      <ul>
+                         <span><b>Your Name List</b></span>
+                      </ul>
+            </fieldset>
+        </div>
+<script type ="text/jscript">
+    $(document).ready(function () {
+        $("#err").hide(); //hide span
+        $("#add").click(function () {
+            var v = $("#txt").val();
+            //append list
+            if (v.length !== 0) {
+                $("ul").append("<li>" + v + "<button class='btn1' type='button' style='margin-left:5%' >X</button> <br></li>");
+                $('#txt').val('');  //for clear the text box
+                $("#err").hide();
+            }
+            else {
+                $("#err").show(); //show span
+            }
+            //            $("ul").append("<li>" + v + "<button class='btn1' type='button' style='margin-left:5%' >X</button> <br></li>");
+
+            //            $('#txt').val('');   
+
+            //for removing perticular list element
+            $(".btn1").on('click', function () {
+                $(this).parent().remove();
+            });
+            $("#txt").focus();// focus on text box
+        });
+    });
+
+
+</script>
+
+</body>
+</html>
